@@ -3,87 +3,87 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://example.com/docs/</loc>
+    <loc>https://hugo-compose.netlify.app/docs/</loc>
   </url>
   
   <url>
-    <loc>https://example.com/docs/motivation/</loc>
+    <loc>https://hugo-compose.netlify.app/docs/motivation/</loc>
   </url>
   
   <url>
-    <loc>https://example.com/docs/lit/</loc>
+    <loc>https://hugo-compose.netlify.app/docs/lit/</loc>
   </url>
   
   <url>
-    <loc>https://example.com/docs/lit/lit-female/</loc>
+    <loc>https://hugo-compose.netlify.app/docs/lit/lit-female/</loc>
   </url>
   
   <url>
-    <loc>https://example.com/docs/lit/homefiled/</loc>
+    <loc>https://hugo-compose.netlify.app/docs/lit/homefiled/</loc>
   </url>
   
   <url>
-    <loc>https://example.com/docs/lit/efficiency/</loc>
+    <loc>https://hugo-compose.netlify.app/docs/lit/efficiency/</loc>
   </url>
   
   <url>
-    <loc>https://example.com/docs/lit/ranking/</loc>
+    <loc>https://hugo-compose.netlify.app/docs/lit/ranking/</loc>
   </url>
   
   <url>
-    <loc>https://example.com/docs/plans/</loc>
+    <loc>https://hugo-compose.netlify.app/docs/plans/</loc>
   </url>
   
   <url>
-    <loc>https://example.com/docs/plans/01-plan-female/</loc>
+    <loc>https://hugo-compose.netlify.app/docs/plans/01-plan-female/</loc>
   </url>
   
   <url>
-    <loc>https://example.com/docs/plans/02-plan-homefiled/</loc>
+    <loc>https://hugo-compose.netlify.app/docs/plans/02-plan-homefiled/</loc>
   </url>
   
   <url>
-    <loc>https://example.com/docs/plans/03-plan-efficiency/</loc>
+    <loc>https://hugo-compose.netlify.app/docs/plans/03-plan-efficiency/</loc>
   </url>
   
   <url>
-    <loc>https://example.com/docs/plans/04-plan-ranking/</loc>
+    <loc>https://hugo-compose.netlify.app/docs/plans/04-plan-ranking/</loc>
   </url>
   
   <url>
-    <loc>https://example.com/docs/plot/</loc>
+    <loc>https://hugo-compose.netlify.app/docs/plot/</loc>
   </url>
   
   <url>
-    <loc>https://example.com/docs/plot/01-plot-female/</loc>
+    <loc>https://hugo-compose.netlify.app/docs/plot/01-plot-female/</loc>
   </url>
   
   <url>
-    <loc>https://example.com/docs/plot/01-plot-female-continent/</loc>
+    <loc>https://hugo-compose.netlify.app/docs/plot/01-plot-female-continent/</loc>
   </url>
   
   <url>
-    <loc>https://example.com/docs/plot/02-plot-homefiled/</loc>
+    <loc>https://hugo-compose.netlify.app/docs/plot/02-plot-homefiled/</loc>
   </url>
   
   <url>
-    <loc>https://example.com/docs/plot/03-plot-efficiency/</loc>
+    <loc>https://hugo-compose.netlify.app/docs/plot/03-plot-efficiency/</loc>
   </url>
   
   <url>
-    <loc>https://example.com/docs/plot/04-plot-ranking/</loc>
+    <loc>https://hugo-compose.netlify.app/docs/plot/04-plot-ranking/</loc>
   </url>
   
   <url>
-    <loc>https://example.com/docs/conclusion/</loc>
+    <loc>https://hugo-compose.netlify.app/docs/conclusion/</loc>
   </url>
   
   <url>
-    <loc>https://example.com/docs/reference/</loc>
+    <loc>https://hugo-compose.netlify.app/docs/reference/</loc>
   </url>
   
   <url>
-    <loc>https://example.com/</loc>
+    <loc>https://hugo-compose.netlify.app/</loc>
   </url>
   
 </urlset>

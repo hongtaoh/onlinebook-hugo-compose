@@ -1,4 +1,4 @@
-baseURL = "https://onlinebook-hugo-composer.netlify.app/"
+baseURL = "https://hugo-compose.netlify.app/"
 title = "Compose Docs"
 enableRobotsTXT = true
 # this example loads the theme as hugo module
