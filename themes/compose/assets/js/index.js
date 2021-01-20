@@ -1,10 +1,39 @@
 (function calcNavHeight(){
   const nav = elem('.nav_header');
   const navHeight = nav.offsetHeight + 25;
-  const docContent = elem('main');
-  // docContent.style.paddingTop = `${navHeight}px`;
   return navHeight;
 })();
+
+function toggleMenu(event) {
+  const target = event.target;
+  const isToggleControl = target.matches(`.${toggleId}`);
+  const isWithToggleControl = target.closest(`.${toggleId}`);
+  const showInstances = elems(`.${showId}`) ? Array.from(elems(`.${showId}`)) : [];
+  const menuInstance = target.closest(`.${menu}`);
+
+  function showOff(target, self = false) {
+    showInstances.forEach(function(showInstance){
+      if(!self) {
+        deleteClass(showInstance, showId);
+      }
+      if(showInstance !== target.closest(`.${menu}`)) {
+        deleteClass(showInstance, showId);
+      }
+    });
+  }
+
+  if(isToggleControl || isWithToggleControl) {
+    const menu = isWithToggleControl ? isWithToggleControl.parentNode.parentNode : target.parentNode.parentNode;
+    event.preventDefault();
+    modifyClass(menu, showId);
+  } else {
+    if(!menuInstance) {
+      showOff(target);
+    } else {
+      showOff(target, true);
+    }
+  }
+}
 
 (function markInlineCodeTags(){
   const codeBlocks = elems('code');
@@ -76,7 +105,7 @@ function loadActions() {
         });
 
         const linkPositions = pageIds.map(function(id){
-          const heading = elem(id);
+          const heading = document.getElementById(id.replace('#',''));
           const position = heading.offsetTop;
           return position;
         });
@@ -153,27 +182,6 @@ function loadActions() {
       pushClass(node, 'link_owner');
     }
   });
-
-  const copyToClipboard = str => {
-    let copy, selection, selected;
-    copy = createEl('textarea');
-    copy.value = str;
-    copy.setAttribute('readonly', '');
-    copy.style.position = 'absolute';
-    copy.style.left = '-9999px';
-    selection = document.getSelection();
-    doc.appendChild(copy);
-    // check if there is any selected content
-    selected = selection.rangeCount > 0 ? selection.getRangeAt(0) : false;
-    copy.select();
-    document.execCommand('copy');
-    doc.removeChild(copy);
-    if (selected) { // if a selection existed before copying
-      selection.removeAllRanges(); // unselect existing selection
-      selection.addRange(selected); // restore the original selection
-    }
-  }
-
 
   function copyFeedback(parent) {
     const copyText = document.createElement('div');
@@ -261,6 +269,17 @@ function loadActions() {
     lazyLoadMedia('img');
   })();
 
+  (function makeTablesResponsive(){
+    const tables = elems('table');
+    if (tables) {
+      tables.forEach(function(table){
+        const tableWrapper = createEl();
+        pushClass(tableWrapper, 'scrollable');
+        wrapEl(table, tableWrapper);
+      });
+    }
+  })();
+
   function pickModePicture(user, system, context) {
     const pictures = elems('picture');
     if(pictures) {
@@ -310,6 +329,7 @@ function loadActions() {
     if(isModeToggle) {
       setUserColorMode(true);
     }
+    toggleMenu(event);
   });
 
 }

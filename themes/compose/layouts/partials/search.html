@@ -3,8 +3,10 @@
   <label for="find" class="search_label">
     {{- partial "sprite" (dict "icon" "search") }}
   </label>
-  <input type="search" class="search_field" placeholder="{{ .Site.Params.searchPlaceholder }}" id="find" autocomplete="off">
-  <div class="search_results"></div>
+  <input type="search" class="search_field" placeholder='{{ T "search_field_placeholder" }}' id="find" autocomplete="off">
+  {{- if ne .Params.searchPage true }}
+  <div class="search_results results"></div>
+  {{- end }}
 </div>
 {{ end }}
 

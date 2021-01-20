@@ -1,6 +1,6 @@
 {{- $s := .Site }}
 {{- $sp := $s.Params }}
-<nav class="wrap nav">
+<nav class="wrap nav menu">
 	<a href="{{ $s.BaseURL }}" class="nav_brand">
 		{{- $logos := $sp.logo }}
 		{{- $litPath := absURL (printf "images/%s" $logos.lightMode) }}
@@ -11,7 +11,9 @@
 			{{ end }}
 			<img srcset = '{{ $litPath }}' alt = '{{ $s.Title }} Logo'>
 		</picture>
-		<label class="nav_toggle">Menu</label>
+		<label class="nav_toggle toggle" title='{{ T "site_menu" }}' role="button">
+			{{ partial "sprite" (dict "icon" "harmburger") }}
+		</label>
 	</a>
 	<ul class="nav_body">
 		<li class="nav-item">

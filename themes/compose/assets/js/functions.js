@@ -1,6 +1,3 @@
-const parentURL = '{{ absURL "" }}';
-const doc = document.documentElement;
-
 function isObj(obj) {
   return (obj && typeof obj === 'object' && obj !== null) ? true : false;
 }
@@ -20,7 +17,7 @@ function elem(selector, parent = document){
 }
 
 function elems(selector, parent = document) {
-  let elems = isObj(parent) ?parent.querySelectorAll(selector) : [];
+  let elems = isObj(parent) ? parent.querySelectorAll(selector) : [];
   return elems.length ? elems : false;
 }
 
@@ -104,5 +101,98 @@ function hasClasses(el) {
   if(isObj(el)) {
     const classes = el.classList;
     return classes.length
+  }
+}
+
+function wrapEl(el, wrapper) {
+  el.parentNode.insertBefore(wrapper, el);
+  wrapper.appendChild(el);
+}
+
+function wrapText(text, context, wrapper = 'mark') {
+  let open = `<${wrapper}>`;
+  let close = `</${wrapper}>`;
+  function wrap(context) {
+    let c = context.innerHTML;
+    let pattern = new RegExp(text, "gi");
+    let matches = text.length ? c.match(pattern) : null;
+
+    if(matches) {
+      matches.forEach(function(matchStr){
+        c = c.replaceAll(matchStr, `${open}${matchStr}${close}`);
+        context.innerHTML = c;
+      });
+    }
+  }
+
+  const contents = ["h1", "h2", "h3", "h4", "h5", "h6", "p", "code", "td"];
+
+  contents.forEach(function(c){
+    const cs = elems(c, context);
+    if(cs.length) {
+      cs.forEach(function(cx, index){
+        if(cx.children.length >= 1) {
+          Array.from(cx.children).forEach(function(child){
+            wrap(child);
+          })
+          wrap(cx);
+        } else {
+          wrap(cx);
+        }
+        // sanitize urls and ids
+      });
+    }
+  });
+
+  const hyperLinks = elems('a');
+  if(hyperLinks) {
+    hyperLinks.forEach(function(link){
+      const href = link.href.replaceAll(encodeURI(open), "").replaceAll(encodeURI(close), "");
+      link.href = href;
+    });
+  }
+}
+
+function parseBoolean(string) {
+  let bool;
+  string = string.trim().toLowerCase();
+  switch (string) {
+    case 'true':
+      return true;
+    case 'false':
+      return false;
+    default:
+      return undefined;
+  }
+};
+
+function loadSvg(file, parent, path = 'icons/') {
+  const link = `${parentURL}${path}${file}.svg`;
+  fetch(link)
+  .then((response) => {
+    return response.text();
+  })
+  .then((data) => {
+    parent.innerHTML = data;
+  });
+}
+
+function copyToClipboard(str) {
+  let copy, selection, selected;
+  copy = createEl('textarea');
+  copy.value = str;
+  copy.setAttribute('readonly', '');
+  copy.style.position = 'absolute';
+  copy.style.left = '-9999px';
+  selection = document.getSelection();
+  doc.appendChild(copy);
+  // check if there is any selected content
+  selected = selection.rangeCount > 0 ? selection.getRangeAt(0) : false;
+  copy.select();
+  document.execCommand('copy');
+  doc.removeChild(copy);
+  if (selected) { // if a selection existed before copying
+    selection.removeAllRanges(); // unselect existing selection
+    selection.addRange(selected); // restore the original selection
   }
 }

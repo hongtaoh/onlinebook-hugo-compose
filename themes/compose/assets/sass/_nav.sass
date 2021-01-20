@@ -22,8 +22,9 @@
     top: 0
     bottom: 0
     width: 3rem
-    display: grid
+    display: flex
     align-items: center
+    justify-content: center
     text-align: center
     right: 0
     color: var(--text)
@@ -35,6 +36,7 @@
     background: var(--accent)
     position: fixed
     height: 100vh
+    transition: transform 0.25s var(--ease)
     transform: translateX(-101vw)
     @media screen and (min-width: 992px)
       transform: translateX(0)
@@ -43,6 +45,14 @@
       justify-content: flex-end
       background: transparent
       flex-direction: row
+  &.show &_body
+    transform: translateX(-1.5rem)
+    box-shadow: 0 1rem 4rem rgba(0,0,0,0.1)
+    background: var(--bg)
+    li:first-child
+      margin: 1.5rem 1rem 0.5rem 1rem
+    // input
+    //   background: var(--accent)
   &-link
     display: inline-flex
     padding: 0.5rem 1rem
