@@ -16,7 +16,7 @@ Another simple but effective method is using a line graph displaying the number 
 
 This graph is successful in showing the growth in the number of female athletes. However, it fails to show the percentage change. Although viewers can see directly the increase in the total number, they might find it difficult to notice the changes in the percentage. 
 
-Washington Street Journal did an interactive visualization comparing the inclusion of female and male events in the Olympics history (Serkez, 2018). It clearly shows that most men’s events were already established before the 1960s, whereas most women’s events were only introduced after the 1980s. See Figure 2. 
+*Washington Street Journal* did an interactive visualization comparing the inclusion of female and male events in the Olympics history (Serkez, 2018). It clearly shows that most men’s events were already established before the 1960s, whereas most women’s events were only introduced after the 1980s. See Figure 2. 
 
 {{<figure src="https://raw.githubusercontent.com/hongtaoh/olymvis/master/static/pics/1-4.png" caption="Figure. 2: Interactive plot by Washington Post showing inclusion of male and female Olympic events">}}
 
