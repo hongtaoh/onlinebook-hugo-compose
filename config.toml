@@ -58,4 +58,4 @@ disableKinds = ["taxonomy", "taxonomyTerm"]
   [params.source]
     name = "GitHub"
     icon = "github.svg"
-    url = "https://github.com/hongtaoh/onlinebook-hugo-compos"
+    url = "https://github.com/hongtaoh/onlinebook-hugo-compose"
